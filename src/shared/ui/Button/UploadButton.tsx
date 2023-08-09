@@ -1,8 +1,4 @@
-import {
-  ActionIcon as ActionIconButton,
-  type ButtonProps,
-  FileButton,
-} from '@mantine/core';
+import { type ButtonProps, FileButton } from '@mantine/core';
 import { IconPlus } from '@tabler/icons-react';
 import type { FC } from 'react';
 
@@ -20,17 +16,15 @@ export const UploadButton: FC<UploadButtonProps> = (props) => {
     disabled,
   } = props;
   return (
-    <FileButton onChange={onClick} accept={accept}>
+    <FileButton onChange={onClick} accept={accept} disabled={disabled}>
       {(props) => (
-        <ActionIconButton
+        <div
           {...props}
           aria-label={ariaLabel}
-          color='green.5'
-          variant='subtle'
-          disabled={disabled}
+          className='flex flex-col justify-center items-center shrink-0 cursor-pointer w-[10rem] h-[10rem] border border-dashed border-gray-200 rounded-lg bg-white hover:bg-white-100'
         >
           <IconPlus size={20} />
-        </ActionIconButton>
+        </div>
       )}
     </FileButton>
   );

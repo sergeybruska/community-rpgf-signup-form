@@ -1,6 +1,6 @@
 import { rem, Text } from '@mantine/core';
 
-import { AddProjectForm } from '@/features/AddProject';
+import { CreateProjectForm } from '@/features/CreateProject';
 import { Footer } from '@/shared/ui/Footer/Footer';
 import { Layout } from '@/shared/ui/Layout';
 import { Title } from '@/shared/ui/Title/Title';
@@ -16,8 +16,8 @@ export default function AddProjectPage() {
     >
       <section className='flex w-full flex-col items-center pt-[4rem]'>
         <div className='flex flex-col items-start'>
-          <Title order={1} size={rem(52)} mb={16}>
-            Add project
+          <Title order={1} size={rem(52)} mb={16} className='font-display'>
+            Nominate project
           </Title>
           <Text
             size='xl'
@@ -28,7 +28,7 @@ export default function AddProjectPage() {
           >
             Please provide all the necessary information about the project.
           </Text>
-          <AddProjectForm />
+          <CreateProjectForm />
         </div>
       </section>
     </Layout>

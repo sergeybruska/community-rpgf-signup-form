@@ -1,13 +1,12 @@
-import { WalletConnectModalAuth } from '@walletconnect/modal-auth-react';
+// import { WalletConnectModalAuth } from '@walletconnect/modal-auth-react';
 import { Open_Sans, Rubik } from 'next/font/google';
 import Head from 'next/head';
 import { type FC, type ReactNode } from 'react';
 
-import { useWalletConnect } from '@/features/WalletConnect';
 import { clsxMerge } from '@/shared/lib/clsxMerge';
 
-const openSans = Open_Sans({ subsets: ['latin'] });
-const rubik = Rubik({ subsets: ['latin'] });
+const openSans = Open_Sans({ subsets: ['latin'], variable: '--body-font' });
+const rubik = Rubik({ subsets: ['latin'], variable: '--display-font' });
 
 type LayoutProps = {
   title: string;
@@ -21,7 +20,7 @@ type LayoutProps = {
 export const Layout: FC<LayoutProps> = (props) => {
   const { title, description, headerSlot, footerSlot, children, isCentered } =
     props;
-  const { projectId } = useWalletConnect();
+
   const mergedClassName = clsxMerge(
     'flex flex-col w-full px-0 max-w-[82.5rem]',
     isCentered && 'items-center',
@@ -37,10 +36,10 @@ export const Layout: FC<LayoutProps> = (props) => {
       </Head>
       {headerSlot}
       <main
-        className={`flex min-h-screen bg-white flex-col py-[5.625rem] px-[2.5rem] items-center justify-start ${openSans.className} ${rubik.className}`}
+        className={`flex min-h-screen bg-white-600 flex-col py-[5.625rem] px-[2.5rem] items-center justify-start ${openSans.variable} ${rubik.variable}`}
       >
         <div className={mergedClassName}>{children}</div>
-        <WalletConnectModalAuth
+        {/* <WalletConnectModalAuth
           projectId={projectId}
           metadata={{
             name: 'My Dapp',
@@ -48,7 +47,7 @@ export const Layout: FC<LayoutProps> = (props) => {
             url: 'https://my-dapp.com',
             icons: ['https://my-dapp.com/logo.png'],
           }}
-        />
+        /> */}
       </main>
       {footerSlot}
     </>

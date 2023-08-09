@@ -11,8 +11,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'body': ['Open Sans', 'sans-serif'],
-        'header': ['Rubik', 'sans-serif']
+        "display": "var(--display-font)",
+        "body": "var(--body-font)",
       },
       fontSize: {
         xs: ['0.75rem', '1.25rem'] /*12px*/,
@@ -44,7 +44,7 @@ module.exports = {
           100: '#F8F9FA',
           400: '#E7E8E7',
           DEFAULT: '#FFFFFF',
-          600: '#FFFFFF',
+          600: '#f1f4f9',
           800: '#162916'
         },
         red: {

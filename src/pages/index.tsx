@@ -8,7 +8,6 @@ import { Layout } from '@/shared/ui/Layout';
 import { Title } from '@/shared/ui/Title/Title';
 import { Header } from '@/widgets/Header';
 import { ProjectsContainer } from '@/widgets/ProjectsContainer';
-import { SubscribeContainer } from '@/widgets/SubscribeContainer';
 
 export default function Home() {
   return (
@@ -17,10 +16,17 @@ export default function Home() {
       description='descr'
       headerSlot={<Header />}
       footerSlot={<Footer />}
+      isCentered
     >
       <section className='flex w-full flex-col items-center pt-[4rem]'>
         <div className='flex flex-col items-center'>
-          <Title order={1} size={rem(52)} mb={16}>
+          <Title
+            order={1}
+            size={rem(52)}
+            mb={16}
+            className='font-display'
+            align='center'
+          >
             Nominate a Project in the Ecosystem
           </Title>
           <Text
@@ -41,12 +47,12 @@ export default function Home() {
             size='lg'
             leftIcon={<IconPlus size={16} />}
           >
-            Add nominante
+            Add project
           </Button>
         </div>
       </section>
-      <ProjectsContainer classNameCard='w-[calc(1/4*100%-1rem)] m-[0.5rem]' />
-      <SubscribeContainer />
+      {/* <ProjectsContainer classNameCard='w-[calc(1/4*100%-1rem)] m-[0.5rem]' isRow /> */}
+      <ProjectsContainer classNameCard='w-full mb-2' isRow />
     </Layout>
   );
 }

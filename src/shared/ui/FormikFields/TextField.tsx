@@ -37,7 +37,7 @@ export const TextField: FC<TextFieldProps> = (props) => {
               placeholder={placeholder}
               label={label}
               disabled={disabled}
-              error={meta.touched && meta.error && meta.error}
+              error={meta.touched && meta.error}
               isRequired={required}
             />
           </div>

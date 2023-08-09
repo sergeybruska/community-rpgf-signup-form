@@ -20,6 +20,8 @@ type MultiSelectProps = {
   itemComponent?: FC<ReactNode> | undefined;
   setSelectedValues: (values: string[]) => void;
   nothingFound?: ReactNode;
+  error?: ReactNode;
+  isRequired?: boolean;
 };
 
 export const MultiSelect: FC<MultiSelectProps> = (props) => {
@@ -36,10 +38,14 @@ export const MultiSelect: FC<MultiSelectProps> = (props) => {
     valueComponent,
     itemComponent,
     nothingFound = 'Not found',
+    error,
+    isRequired,
     setSelectedValues,
   } = props;
 
   const [select, setSelect] = useState<string[]>([]);
+
+  console.log(error);
 
   useEffect(() => {
     setSelect(value);
@@ -61,12 +67,16 @@ export const MultiSelect: FC<MultiSelectProps> = (props) => {
       disabled={disabled}
       radius='xs'
       nothingFound={nothingFound}
+      error={error}
+      withAsterisk={isRequired}
       classNames={{
         label: 'mb-1 font-semibold',
         input:
-          'border-gray-400 rounded-sm focus:border-green active:border-green font-body',
+          'flex flex-row items-center border-gray-200 rounded-lg min-h-[3.125rem] focus:border-gray-400',
         value:
-          'border border-green bg-white uppercase text-green font-bold fill-green',
+          'border border-gray-200 bg-gray-200 rounded-md min-h-[2rem] text-sm text-gray-500 font-semibold fill-white',
+        defaultValueRemove: 'text-gray-500',
+        dropdown: 'rounded-lg',
       }}
     />
   );

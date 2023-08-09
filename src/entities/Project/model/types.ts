@@ -1,11 +1,20 @@
 export type ProjectModel = {
-  id: string;
-  logo: string | null;
+  _id: string;
   name: string;
   description: string;
+  about_team: string;
+  team_company: string;
   category: string;
-  team: string;
-  url: string;
-  views: number;
-  likes: number;
+  has_token: string;
+  fund_history: string;
+  size_grant: number;
+  url_website: string;
+  url_whitepaper: string;
+  contact_name: string;
+  contact_email: string;
+  contact_tg: string;
+  cover: string | null;
+  is_moderate: boolean;
+  update_time: number | null;
+  createdAt: string;
 };

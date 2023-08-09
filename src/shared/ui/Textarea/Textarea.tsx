@@ -7,15 +7,17 @@ type TextareaComponentProps = TextareaProps &
   };
 
 export const Textarea: FC<TextareaComponentProps> = (props) => {
-  const { isRequired } = props;
+  const { isRequired, ...restProps } = props;
 
   return (
     <MantineTextarea
-      {...props}
+      {...restProps}
       withAsterisk={isRequired}
       classNames={{
-        label: 'mb-1 font-semibold',
-        input: 'border-gray-200 rounded-lg focus:border-green min-h-[8.25rem]',
+        label: 'font-semibold',
+        description: 'mb-2 text-sm leading-4',
+        input:
+          'border-gray-200 rounded-lg focus:border-gray-400 min-h-[8.25rem]',
       }}
     />
   );

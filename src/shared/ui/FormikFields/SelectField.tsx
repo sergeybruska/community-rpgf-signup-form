@@ -13,6 +13,7 @@ type SelectFieldProps = {
   className: string;
   isSearchable?: boolean;
   disabled: boolean;
+  isRequired?: boolean;
 };
 
 export const SelectField: FC<SelectFieldProps> = (props) => {
@@ -25,21 +26,35 @@ export const SelectField: FC<SelectFieldProps> = (props) => {
     className,
     isSearchable,
     disabled,
+    isRequired,
   } = props;
+
+  const handleChange = (
+    value: string | null,
+    setFieldValue: (field: string, value: unknown) => void,
+    setFieldTouched: (field: string, isTouched?: boolean) => void,
+  ) => {
+    setFieldValue(name, value);
+    setTimeout(() => setFieldTouched(name, true));
+  };
+
   return (
     <Field name={name}>
-      {({ field, form }: FieldProps) => (
+      {({ field, form, meta }: FieldProps) => (
         <div className={className}>
           <Select
             {...field}
-            name={name}
             label={label}
-            options={options}
-            setSelectedValue={(value) => form.setFieldValue(name, value)}
+            data={options}
+            onChange={(value) =>
+              handleChange(value, form.setFieldValue, form.setFieldTouched)
+            }
             isSearchable={isSearchable}
             icon={icon}
             disabled={disabled}
             placeholder={placeholder}
+            isRequired={isRequired}
+            error={meta.touched && meta.error}
           />
         </div>
       )}

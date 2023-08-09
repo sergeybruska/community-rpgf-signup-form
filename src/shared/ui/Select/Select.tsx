@@ -1,32 +1,36 @@
-import { Select as MantineSelect } from '@mantine/core';
+import {
+  Select as MantineSelect,
+  type SelectProps as MantineSelectProps,
+} from '@mantine/core';
 import { type FC, type ReactNode } from 'react';
 
-import { type OptionSelect } from '../MultiSelect';
-
-type SelectProps = {
+type SelectProps = MantineSelectProps & {
   name: string;
-  options: OptionSelect[];
   value: string;
   label: string;
   icon?: ReactNode;
   disabled?: boolean;
   isSearchable?: boolean;
   placeholder?: string;
-  setSelectedValue: (values: string) => void;
+  isRequired?: boolean;
+  error?: ReactNode;
 };
 
 export const Select: FC<SelectProps> = (props) => {
   const {
     name,
-    options,
+    data,
     label,
     icon,
     value,
     isSearchable,
     placeholder,
+    isRequired,
     disabled,
-    setSelectedValue,
+    error,
+    onChange,
   } = props;
+
   return (
     <MantineSelect
       name={name}
@@ -34,16 +38,18 @@ export const Select: FC<SelectProps> = (props) => {
       icon={icon}
       value={value}
       placeholder={placeholder}
-      onChange={setSelectedValue}
-      data={options}
+      withAsterisk={isRequired}
+      onChange={onChange}
+      data={data}
       searchable={isSearchable}
       disabled={disabled}
+      error={error}
       styles={(theme) => ({
         item: {
           '&[data-selected]': {
             '&, &:hover': {
-              backgroundColor: theme.colors.green[5],
-              color: theme.white,
+              backgroundColor: theme.colors.gray[2],
+              color: theme.black,
             },
           },
 
@@ -53,7 +59,8 @@ export const Select: FC<SelectProps> = (props) => {
       classNames={{
         label: 'mb-1 font-semibold',
         input:
-          'border-gray-400 rounded-sm focus:border-green active:border-green font-body',
+          'border-gray-200 rounded-lg min-h-[3.125rem] focus:border-gray-400',
+        dropdown: 'rounded-lg',
       }}
     />
   );

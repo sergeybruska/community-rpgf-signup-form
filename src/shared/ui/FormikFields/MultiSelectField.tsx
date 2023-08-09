@@ -15,6 +15,7 @@ type MultiSelectFieldProps = {
   disabled?: boolean;
   itemComponent?: FC<ReactNode> | undefined;
   nothingFound?: ReactNode;
+  isRequired?: boolean;
 };
 
 export const MultiSelectField: FC<MultiSelectFieldProps> = (props) => {
@@ -30,10 +31,21 @@ export const MultiSelectField: FC<MultiSelectFieldProps> = (props) => {
     isSearchable,
     disabled,
     nothingFound,
+    isRequired,
   } = props;
+
+  const handleChange = (
+    value: string[] | null,
+    setFieldValue: (field: string, value: unknown) => void,
+    setFieldTouched: (field: string, isTouched?: boolean) => void,
+  ) => {
+    setFieldValue(name, value);
+    setTimeout(() => setFieldTouched(name, true));
+  };
+
   return (
     <Field name={name}>
-      {({ field, form }: FieldProps) => (
+      {({ field, form, meta }: FieldProps) => (
         <div className={className}>
           <MultiSelect
             {...field}
@@ -41,13 +53,17 @@ export const MultiSelectField: FC<MultiSelectFieldProps> = (props) => {
             label={label}
             options={options}
             itemComponent={itemComponent}
-            setSelectedValues={(value) => form.setFieldValue(name, value)}
+            setSelectedValues={(value) =>
+              handleChange(value, form.setFieldValue, form.setFieldTouched)
+            }
             isSearchable={isSearchable}
             maxSelections={maxSelections}
             icon={icon}
             placeholder={placeholder}
             disabled={disabled}
             nothingFound={nothingFound}
+            isRequired={isRequired}
+            error={meta.touched && meta.error}
           />
         </div>
       )}

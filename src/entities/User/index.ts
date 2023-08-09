@@ -1,4 +1,4 @@
-export { useUserStore } from '@/entities/User/model/store';
+export { logOutUser, useUserStore } from '@/entities/User/model/store';
 export {
   type User,
   type UserResponse,

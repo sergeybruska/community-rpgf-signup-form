@@ -6,6 +6,7 @@ import { Textarea } from '../Textarea';
 type TextAreaFieldProps = {
   name: string;
   label?: string;
+  description?: string;
   placeholder?: string;
   className: string;
   disabled?: boolean;
@@ -13,7 +14,15 @@ type TextAreaFieldProps = {
 };
 
 export const TextAreaField: FC<TextAreaFieldProps> = (props) => {
-  const { name, label, className, placeholder, disabled, required } = props;
+  const {
+    name,
+    label,
+    description,
+    className,
+    placeholder,
+    disabled,
+    required,
+  } = props;
   return (
     <Field name={name}>
       {({ field, meta }: FieldProps) => (
@@ -22,9 +31,10 @@ export const TextAreaField: FC<TextAreaFieldProps> = (props) => {
             {...field}
             value={field.value ? field.value : ''}
             placeholder={placeholder}
+            description={description}
             label={label}
             disabled={disabled}
-            error={meta.touched && meta.error && meta.error}
+            error={meta.touched && meta.error}
             isRequired={required}
           />
         </div>

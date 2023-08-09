@@ -17,7 +17,7 @@ export const useUserStore = create<UserStoreState & UserStoreAction>()(
       (set) => ({
         ...initialState,
         setUser: (data: User) => set({ user: data }, false, 'user/setUser'),
-        logOut: () => {
+        deleteUser: () => {
           set(initialState);
           typeof window !== 'undefined' && localStorage.removeItem('authToken');
         },
@@ -26,3 +26,5 @@ export const useUserStore = create<UserStoreState & UserStoreAction>()(
     ),
   ),
 );
+
+export const logOutUser = () => useUserStore.getState().deleteUser();

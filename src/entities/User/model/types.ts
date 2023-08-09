@@ -1,7 +1,6 @@
 export type User = {
-  id: string;
+  _id: string;
   name: string;
-  permissions: string[];
   role: string;
 };
 
@@ -16,5 +15,5 @@ export type UserStoreState = {
 
 export type UserStoreAction = {
   setUser: (user: User) => void;
-  logOut: () => void;
+  deleteUser: () => void;
 };

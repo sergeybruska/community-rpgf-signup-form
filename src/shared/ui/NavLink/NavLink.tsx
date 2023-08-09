@@ -11,7 +11,7 @@ type NavLinkProps = {
 };
 
 const navLinkClassName =
-  'flex justify-center items-center px-3.5 h-7.5 border border-transparent rounded-sm whitespace-nowrap font-semibold text-center text-sm leading-7 text-black';
+  'flex justify-center items-center px-3.5 h-7.5 border border-transparent rounded-sm whitespace-nowrap font-semibold text-center text-sm leading-7 text-black hover:text-red-500';
 
 const isActiveClassName = 'border border-green text-green';
 
