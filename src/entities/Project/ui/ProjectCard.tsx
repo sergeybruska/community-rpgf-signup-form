@@ -7,10 +7,10 @@ import { clsxMerge } from '@/shared/lib/clsxMerge';
 import { navigationRoutes } from '@/shared/routes/routes';
 import { Title } from '@/shared/ui/Title/Title';
 
-import { type ProjectModel } from '../model/types';
+import { type Project } from '../model/types';
 
 type ProjectCardProps = {
-  project: ProjectModel;
+  project: Project;
   className?: string;
 };
 

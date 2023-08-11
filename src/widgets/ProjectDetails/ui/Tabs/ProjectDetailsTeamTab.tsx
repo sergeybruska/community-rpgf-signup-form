@@ -1,10 +1,10 @@
 import { Spoiler, Text } from '@mantine/core';
 import { type FC } from 'react';
 
-import { type ProjectModel } from '@/entities/Project';
+import { type Project } from '@/entities/Project';
 
 type ProjectDetailsTeamTabProps = {
-  project: ProjectModel;
+  project: Project;
 };
 
 export const ProjectDetailsTeamTab: FC<ProjectDetailsTeamTabProps> = (

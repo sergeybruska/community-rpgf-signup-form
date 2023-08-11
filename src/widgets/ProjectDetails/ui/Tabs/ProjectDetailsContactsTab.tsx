@@ -1,10 +1,10 @@
 import { Text } from '@mantine/core';
 import { type FC } from 'react';
 
-import { type ProjectModel } from '@/entities/Project';
+import { type Project } from '@/entities/Project';
 
 type ProjectDetailsContactsTabProps = {
-  project: ProjectModel;
+  project: Project;
 };
 
 export const ProjectDetailsContactsTab: FC<ProjectDetailsContactsTabProps> = (

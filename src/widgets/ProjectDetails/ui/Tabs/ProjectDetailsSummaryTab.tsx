@@ -2,14 +2,14 @@ import { Spoiler, Text } from '@mantine/core';
 import { IconFileDescription, IconWorld } from '@tabler/icons-react';
 import { type FC } from 'react';
 
-import { type ProjectModel } from '@/entities/Project';
+import { type Project } from '@/entities/Project';
 import {
   displayPriceInLocalFormat,
   ensureHttpProtocol,
 } from '@/shared/lib/utils';
 
 type ProjectDetailsSummaryTabProps = {
-  project: ProjectModel;
+  project: Project;
 };
 
 export const ProjectDetailsSummaryTab: FC<ProjectDetailsSummaryTabProps> = (
