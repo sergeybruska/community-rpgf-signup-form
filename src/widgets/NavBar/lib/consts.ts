@@ -7,10 +7,6 @@ export type NavLinkTypes = {
 
 export const NAVLINKS: NavLinkTypes[] = [
   {
-    label: 'Announcements',
-    path: navigationRoutes.announcements,
-  },
-  {
     label: 'Projects',
     path: navigationRoutes.projects,
   },

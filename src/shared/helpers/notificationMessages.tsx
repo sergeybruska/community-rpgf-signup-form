@@ -9,6 +9,7 @@ export const notificationTitles = {
 export const notificationMessages = {
   createProjectSuccess:
     'The project has been added successfully and is awaiting validation. ',
+  editProjectSuccess: 'Project has been successfully changed',
   somethingWentWrong: 'Something went wrong',
   loginError: 'Incorrect email or password',
   deleteValueError:

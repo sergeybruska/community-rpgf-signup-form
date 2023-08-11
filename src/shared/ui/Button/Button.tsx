@@ -67,7 +67,7 @@ const variantClassName: Record<
 };
 
 const classNameBySize: Record<ButtonSize, string> = {
-  base: 'w-fit h-[2.25rem] text-sm px-12 rounded-md font-semibold',
+  base: 'w-fit h-[2.25rem] px-4 py-2 text-sm rounded-md font-semibold',
   sm: 'w-fit text-sm py-0 px-4 rounded-lg font-semibold',
   md: 'w-fit text-sm px-4 py-2 rounded-lg font-bold',
   xs: 'w-fit text-xs px-3 py-2 rounded-lg font-semibold',
@@ -75,7 +75,7 @@ const classNameBySize: Record<ButtonSize, string> = {
 };
 
 const buttonClassName =
-  'flex place-content-center justify-center items-center text-center whitespace-nowrap ease-in duration-150';
+  'flex place-content-center justify-center font-display items-center text-center whitespace-nowrap ease-in duration-150';
 
 const fullWidthClassName = 'w-full';
 

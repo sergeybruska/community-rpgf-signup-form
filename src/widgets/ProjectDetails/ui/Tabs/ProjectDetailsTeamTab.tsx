@@ -13,13 +13,13 @@ export const ProjectDetailsTeamTab: FC<ProjectDetailsTeamTabProps> = (
   const { project } = props;
   return (
     <div className='flex flex-col w-full py-4'>
-      <Text size='sm' className='font-semibold mb-2 font-display'>
+      <Text size='sm' className='font-semibold mb-1 font-display'>
         Company / Team Name
       </Text>
       <Text size='md' color='gray.7' mb={16} align='left'>
         {project.team_company}
       </Text>
-      <Text size='sm' className='font-semibold mb-2 font-display'>
+      <Text size='sm' className='font-semibold mb-1 font-display'>
         About team
       </Text>
       <Spoiler

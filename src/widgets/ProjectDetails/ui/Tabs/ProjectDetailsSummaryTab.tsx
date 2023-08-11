@@ -37,7 +37,7 @@ export const ProjectDetailsSummaryTab: FC<ProjectDetailsSummaryTabProps> = (
         </a>
       </div>
 
-      <Text size='sm' className='font-semibold mb-2 font-display'>
+      <Text size='sm' className='font-semibold mb-1 font-display'>
         Project description
       </Text>
       <Spoiler
@@ -57,19 +57,19 @@ export const ProjectDetailsSummaryTab: FC<ProjectDetailsSummaryTabProps> = (
           {project.description}
         </Text>
       </Spoiler>
-      <Text size='sm' className='font-semibold mb-2 font-display'>
+      <Text size='sm' className='font-semibold mb-1 font-display'>
         Token
       </Text>
       <Text size='md' color='gray.7' mb={16} align='left' className='uppercase'>
         {project.has_token}
       </Text>
-      <Text size='sm' className='font-semibold mb-2 font-display'>
+      <Text size='sm' className='font-semibold mb-1 font-display'>
         Size of Grant (USD)
       </Text>
       <Text size='md' color='gray.7' mb={16} align='left' className='uppercase'>
         {displayPriceInLocalFormat(project.size_grant * 100)}
       </Text>
-      <Text size='sm' className='font-semibold mb-2 font-display'>
+      <Text size='sm' className='font-semibold mb-1 font-display'>
         Fundraising History
       </Text>
       <Spoiler

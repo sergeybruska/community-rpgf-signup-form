@@ -13,19 +13,23 @@ export const ProjectDetailsContactsTab: FC<ProjectDetailsContactsTabProps> = (
   const { project } = props;
   return (
     <div className='flex flex-col w-full py-4'>
-      <Text size='sm' className='font-semibold mb-2 font-display'>
+      <Text size='sm' className='font-semibold mb-1 font-display'>
         Contact name
       </Text>
       <Text size='md' color='gray.7' mb={16} align='left'>
         {project.contact_name}
       </Text>
-      <Text size='sm' className='font-semibold mb-2 font-display'>
+      <Text size='sm' className='font-semibold mb-1 font-display'>
         Email
       </Text>
-      <Text size='md' color='gray.7' mb={16} align='left'>
+      <a
+        href={`mailto:${project.contact_email}`}
+        className='text-md text-red-500 hover:text-red-400 mb-3'
+      >
         {project.contact_email}
-      </Text>
-      <Text size='sm' className='font-semibold mb-2 font-display'>
+      </a>
+
+      <Text size='sm' className='font-semibold mb-1 font-display'>
         Telegram
       </Text>
       <Text size='md' color='gray.7' mb={16} align='left'>

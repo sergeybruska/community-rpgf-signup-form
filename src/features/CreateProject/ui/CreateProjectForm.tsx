@@ -99,7 +99,7 @@ export const CreateProjectForm: FC = () => {
         <TextAreaField
           name='fund_history'
           label='Fundraising History'
-          description='Size, Date, Funders'
+          description='Size, Date, Funders, if none, just write No'
           className='flex flex-col w-full mb-8'
           required
           disabled={isLoading}

@@ -8,7 +8,7 @@ export default function ProjectPage() {
     <Layout
       title='Edit category'
       description='Edit category'
-      headerSlot={<Header isAuth />}
+      headerSlot={<Header />}
       footerSlot={<Footer />}
     >
       <section className='flex flex-col items-center w-full pt-[4rem]'>

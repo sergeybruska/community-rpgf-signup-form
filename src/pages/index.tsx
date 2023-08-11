@@ -1,5 +1,6 @@
-import { rem, Text } from '@mantine/core';
-import { IconPlus } from '@tabler/icons-react';
+import { Text } from '@mantine/core';
+import { IconChevronRight, IconPlus } from '@tabler/icons-react';
+import Link from 'next/link';
 
 import { navigationRoutes } from '@/shared/routes/routes';
 import { Button } from '@/shared/ui/Button';
@@ -12,8 +13,8 @@ import { ProjectsContainer } from '@/widgets/ProjectsContainer';
 export default function Home() {
   return (
     <Layout
-      title='Community RPGF Signup Form'
-      description='descr'
+      title='Nominate a Project in the Optimism Ecosystem'
+      description='Tell the community RetroPGF about your project and how it will be useful, so you increase the likelihood of getting grants'
       headerSlot={<Header />}
       footerSlot={<Footer />}
       isCentered
@@ -22,12 +23,11 @@ export default function Home() {
         <div className='flex flex-col items-center'>
           <Title
             order={1}
-            size={rem(52)}
             mb={16}
-            className='font-display'
+            className='font-display max-w-[56.5rem] text-4xl md:text-5xl'
             align='center'
           >
-            Nominate a Project in the Ecosystem
+            Nominate a Project in the Optimism Ecosystem
           </Title>
           <Text
             size='xl'
@@ -47,12 +47,29 @@ export default function Home() {
             size='lg'
             leftIcon={<IconPlus size={16} />}
           >
-            Add project
+            Apply Now
           </Button>
         </div>
       </section>
-      {/* <ProjectsContainer classNameCard='w-[calc(1/4*100%-1rem)] m-[0.5rem]' isRow /> */}
-      <ProjectsContainer classNameCard='w-full mb-2' isRow />
+      <section className='flex w-full flex-col items-center py-[4rem]'>
+        <div className='flex w-full flex-col max-w-[64rem]'>
+          <div className='flex flex-row w-full justify-between'>
+            <Title order={3} mb={16} className='font-display'>
+              Last projects
+            </Title>
+            <Link
+              href={navigationRoutes.projects}
+              className='flex flex-row items-center text-md text-black hover:text-red-700 font-semibold mb-4'
+            >
+              More projects{' '}
+              <div className='ml-2'>
+                <IconChevronRight size={16} color='red' />
+              </div>
+            </Link>
+          </div>
+          <ProjectsContainer classNameCard='w-full mb-2' isRow />
+        </div>
+      </section>
     </Layout>
   );
 }

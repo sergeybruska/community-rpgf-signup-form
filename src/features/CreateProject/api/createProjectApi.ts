@@ -5,8 +5,7 @@ import {
 } from '@tanstack/react-query';
 import { type AxiosError, type AxiosResponse } from 'axios';
 
-import { type Category } from '@/entities/Category';
-import { projectsQueryKey } from '@/entities/Project';
+import { type Project, projectsQueryKey } from '@/entities/Project';
 import { apiClient } from '@/shared/api/apiClient';
 import { apiRoutes } from '@/shared/api/apiRoutes';
 import { objectUrlToBlob } from '@/shared/lib/utils';
@@ -47,7 +46,7 @@ export const useCreateProjectApi = (): UseMutationResult<
     mutationFn: (body) => createProject(body),
     onSuccess: async (res) => {
       const existingData =
-        queryClient.getQueryData<Category[]>(projectsQueryKey);
+        queryClient.getQueryData<Project[]>(projectsQueryKey);
       const newData = existingData && [...existingData, res.data];
       queryClient.setQueryData(projectsQueryKey, newData);
       return newData;

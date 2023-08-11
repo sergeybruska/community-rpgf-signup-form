@@ -1,7 +1,9 @@
 export const navigationRoutes = {
   home: '/',
-  announcements: '/announcements',
+  login: '/login',
   projects: '/projects',
   about: '/about',
   addProject: '/add-project',
+  admin: '/admin',
+  adminEditProject: '/admin/projects',
 };

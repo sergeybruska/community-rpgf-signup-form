@@ -8,6 +8,10 @@ import '@/app/styles/globals.css';
 
 import { ModalProvider } from '@/app/providers/ModalProvider';
 import { mantineTheme } from '@/app/theme/mantineTheme';
+import {
+  AuthChecker,
+  SessionProvider,
+} from '@/features/Authentication/AuthChecker';
 
 const myCache = createEmotionCache({ key: 'mantine', prepend: true });
 
@@ -23,18 +27,22 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 
   return (
-    <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
-      emotionCache={myCache}
-      theme={mantineTheme}
-    >
-      <QueryClientProvider client={queryClient}>
-        <ModalProvider>
-          <Component {...pageProps} />
-          <Notifications position='top-right' zIndex={2077} />
-        </ModalProvider>
-      </QueryClientProvider>
-    </MantineProvider>
+    <SessionProvider>
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        emotionCache={myCache}
+        theme={mantineTheme}
+      >
+        <QueryClientProvider client={queryClient}>
+          <ModalProvider>
+            <AuthChecker>
+              <Component {...pageProps} />
+              <Notifications position='top-right' zIndex={2077} />
+            </AuthChecker>
+          </ModalProvider>
+        </QueryClientProvider>
+      </MantineProvider>
+    </SessionProvider>
   );
 }

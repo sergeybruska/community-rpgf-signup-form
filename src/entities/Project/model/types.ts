@@ -1,4 +1,4 @@
-export type ProjectModel = {
+export type Project = {
   _id: string;
   name: string;
   description: string;
@@ -17,4 +17,8 @@ export type ProjectModel = {
   is_moderate: boolean;
   update_time: number | null;
   createdAt: string;
+};
+
+export type ProjectModerateRequest = {
+  is_moderate: boolean;
 };

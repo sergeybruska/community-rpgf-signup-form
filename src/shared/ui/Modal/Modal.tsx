@@ -10,9 +10,13 @@ export const Modal: FC<PropsWithChildren<unknown>> = ({ children }) => {
     <MantineModal
       opened={isOpen}
       onClose={popModal}
-      title={<div className='text-2xl font-bold text-black'>{modal.title}</div>}
+      title={
+        <div className='text-2xl font-bold font-display text-black'>
+          {modal.title}
+        </div>
+      }
       centered={modal.isCentered}
-      radius='xs'
+      radius='lg'
       size={modal.size}
       classNames={{
         content: modal.isContentOverflowYVisible

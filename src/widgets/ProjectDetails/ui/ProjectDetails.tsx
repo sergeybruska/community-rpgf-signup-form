@@ -2,10 +2,10 @@ import { Badge, Image, rem, Tabs } from '@mantine/core';
 import { type FC } from 'react';
 
 import { checkProjectStatus } from '@/shared/lib/utils';
-import { Spinner } from '@/shared/ui/Icons';
 import { Title } from '@/shared/ui/Title/Title';
 import {
   ProjectDetailsContactsTab,
+  ProjectDetailsSkeleton,
   ProjectDetailsSummaryTab,
   ProjectDetailsTab,
   ProjectDetailsTeamTab,
@@ -27,15 +27,11 @@ export const ProjectDetails: FC = () => {
   }
 
   if (isLoading || typeof currentProject === 'undefined') {
-    return (
-      <div className='flex flex-col justify-center items-center min-h-[9.625rem]'>
-        <Spinner />
-      </div>
-    );
+    return <ProjectDetailsSkeleton />;
   }
 
   return (
-    <div className='flex flex-col w-full max-w-[42.5rem] bg-white p-8 rounded-lg'>
+    <div className='flex flex-col w-full max-w-[42.5rem] bg-white p-4 md:p-8 rounded-lg'>
       <div className='flex flex-row w-full space-x-4'>
         {currentProject.cover ? (
           <Image
@@ -48,11 +44,11 @@ export const ProjectDetails: FC = () => {
         ) : (
           <div className='block w-[3.5rem] h-[3.5rem] rounded-full bg-gray-200 mb-4'></div>
         )}
-        <div className='flex flex-col items-start w-full'>
+        <div className='flex flex-col items-start w-full pt-1'>
           <Title
             order={1}
-            size={rem(32)}
-            mb={16}
+            size={rem(28)}
+            mb={8}
             className='font-display'
             align='left'
           >

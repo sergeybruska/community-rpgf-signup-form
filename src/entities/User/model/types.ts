@@ -2,11 +2,12 @@ export type User = {
   _id: string;
   name: string;
   role: string;
+  is_active: boolean;
 };
 
 export type UserResponse = {
   userInfo: User;
-  access_token: string;
+  auth_token: string;
 };
 
 export type UserStoreState = {

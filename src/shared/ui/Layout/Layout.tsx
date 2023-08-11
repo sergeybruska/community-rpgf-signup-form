@@ -12,7 +12,7 @@ type LayoutProps = {
   title: string;
   description: string;
   headerSlot: ReactNode;
-  footerSlot: ReactNode;
+  footerSlot?: ReactNode;
   children: ReactNode;
   isCentered?: boolean;
 };
@@ -36,18 +36,10 @@ export const Layout: FC<LayoutProps> = (props) => {
       </Head>
       {headerSlot}
       <main
-        className={`flex min-h-screen bg-white-600 flex-col py-[5.625rem] px-[2.5rem] items-center justify-start ${openSans.variable} ${rubik.variable}`}
+        className={`flex min-h-screen bg-white-600 flex-col py-[4rem] md:py-[5.625rem] px-4 md:px-[2.5rem] items-center justify-start ${openSans.variable} ${rubik.variable}`}
       >
-        <div className={mergedClassName}>{children}</div>
-        {/* <WalletConnectModalAuth
-          projectId={projectId}
-          metadata={{
-            name: 'My Dapp',
-            description: 'My Dapp description',
-            url: 'https://my-dapp.com',
-            icons: ['https://my-dapp.com/logo.png'],
-          }}
-        /> */}
+        {/* <div className={mergedClassName}>{children}</div> */}
+        {children}
       </main>
       {footerSlot}
     </>

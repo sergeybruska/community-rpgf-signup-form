@@ -22,8 +22,8 @@ module.exports = {
         xl: ['1.25rem', '2rem'] /*20px*/,
         '2xl': ['1.5rem', '2.25rem'] /*24px*/,
         '3xl': ['1.625rem', '2.188rem'] /*28px*/,
-        '4xl': ['2rem', '2.75rem'] /*32px*/,
-        '5xl': ['2.25rem', '3.25rem'] /*36px*/,
+        '4xl': ['2.25rem', '2.625rem'] /*36px*/,
+        '5xl': ['3.5rem', '3.875rem'] /*56px*/,
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -42,6 +42,7 @@ module.exports = {
         },
         white: {
           100: '#F8F9FA',
+          200: '#FAFAFA',
           400: '#E7E8E7',
           DEFAULT: '#FFFFFF',
           600: '#f1f4f9',
