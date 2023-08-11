@@ -143,6 +143,7 @@ export const CreateProjectForm: FC = () => {
           name='contact_tg'
           label='Your Telegram'
           className='flex flex-col w-full mb-4'
+          placeholder='@username'
           required
           disabled={isLoading}
         />

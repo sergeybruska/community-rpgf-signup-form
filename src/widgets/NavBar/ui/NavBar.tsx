@@ -5,7 +5,7 @@ import { NavLink } from '@/shared/ui/NavLink/NavLink';
 import { NAVLINKS } from '@/widgets/NavBar/lib/consts';
 
 const navBarClassName =
-  'flex flex-row justify-center items-center absolute inset-x-2/4';
+  'hidden md:flex flex-row justify-center items-center absolute inset-x-2/4';
 
 export const NavBar: FC = () => {
   const router = useRouter();

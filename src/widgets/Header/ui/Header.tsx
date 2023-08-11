@@ -1,3 +1,6 @@
+import { ActionIcon } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import { IconMenu } from '@tabler/icons-react';
 import { Open_Sans } from 'next/font/google';
 import type { FC } from 'react';
 
@@ -8,6 +11,7 @@ import { Button } from '@/shared/ui/Button';
 import { NavBar } from '@/widgets/NavBar';
 
 import { HeaderLogo } from './HeaderLogo';
+import { MobileMenu } from './MobileMenu';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -19,32 +23,39 @@ const wrapperClassName = clsxMerge(
 const rowClassName =
   'flex relative flex-row justify-between items-center w-full flex-1 py-4 max-w-[82.5rem]';
 
-const actionSideClassName = 'flex flex-row items-center';
+const actionSideClassName = 'hidden md:flex flex-row items-center';
 
 export const Header: FC = () => {
   const { user } = useUserStore();
+  const [opened, { open, close }] = useDisclosure(false);
 
   return (
-    <header className={wrapperClassName}>
-      <div className={rowClassName}>
-        <HeaderLogo />
-        <NavBar />
-        <div className={actionSideClassName}>
-          {user ? (
-            <UserBlockHeader />
-          ) : (
-            <Button
-              isLinkButton
-              linkTo={navigationRoutes.addProject}
-              variant='primary'
-              color='red'
-              size='base'
-            >
-              Apply Now
-            </Button>
-          )}
+    <>
+      <header className={wrapperClassName}>
+        <div className={rowClassName}>
+          <HeaderLogo />
+          <NavBar />
+          <div className={actionSideClassName}>
+            {user ? (
+              <UserBlockHeader />
+            ) : (
+              <Button
+                isLinkButton
+                linkTo={navigationRoutes.addProject}
+                variant='primary'
+                color='red'
+                size='base'
+              >
+                Apply Now
+              </Button>
+            )}
+          </div>
+          <ActionIcon onClick={open} className='flex md:hidden'>
+            <IconMenu size={16} />
+          </ActionIcon>
         </div>
-      </div>
-    </header>
+      </header>
+      <MobileMenu isOpen={opened} handleClose={close} />
+    </>
   );
 };

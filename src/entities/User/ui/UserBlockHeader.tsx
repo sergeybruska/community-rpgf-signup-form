@@ -32,8 +32,11 @@ export const UserBlockHeader: FC = () => {
         shadow='md'
         width={200}
         offset={{
-          mainAxis: 20,
+          mainAxis: 10,
           crossAxis: -60,
+        }}
+        classNames={{
+          dropdown: 'rounded-md',
         }}
       >
         <Menu.Target>
