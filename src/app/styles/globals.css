@@ -19,3 +19,8 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+mantine-UnstyledButton
+a[class^="mantine-UnstyledButton"] {
+  border-radius: 0.5rem;
+}
