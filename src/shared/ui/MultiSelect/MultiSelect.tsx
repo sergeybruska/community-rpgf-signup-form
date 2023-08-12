@@ -45,8 +45,6 @@ export const MultiSelect: FC<MultiSelectProps> = (props) => {
 
   const [select, setSelect] = useState<string[]>([]);
 
-  console.log(error);
-
   useEffect(() => {
     setSelect(value);
   }, [value]);

@@ -1,7 +1,7 @@
 import { ActionIcon } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconMenu } from '@tabler/icons-react';
-import { Open_Sans } from 'next/font/google';
+import { Open_Sans, Rubik } from 'next/font/google';
 import type { FC } from 'react';
 
 import { UserBlockHeader, useUserStore } from '@/entities/User';
@@ -13,11 +13,13 @@ import { NavBar } from '@/widgets/NavBar';
 import { HeaderLogo } from './HeaderLogo';
 import { MobileMenu } from './MobileMenu';
 
-const openSans = Open_Sans({ subsets: ['latin'] });
+const openSans = Open_Sans({ subsets: ['latin'], variable: '--body-font' });
+const rubik = Rubik({ subsets: ['latin'], variable: '--display-font' });
 
 const wrapperClassName = clsxMerge(
   'flex justify-center items-center flex-col px-4 md:px-[2.5rem] bg-white border-b border-gray-200 fixed top-0 left-0 w-full z-20',
-  openSans.className,
+  openSans.variable,
+  rubik.variable,
 );
 
 const rowClassName =

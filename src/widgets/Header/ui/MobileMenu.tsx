@@ -17,7 +17,14 @@ export const MobileMenu: FC<MobileMenuProps> = (props) => {
   const { isOpen, handleClose } = props;
 
   return (
-    <Drawer opened={isOpen} onClose={handleClose} title={<HeaderLogo />}>
+    <Drawer
+      opened={isOpen}
+      onClose={handleClose}
+      title={<HeaderLogo />}
+      transitionProps={{
+        transition: 'slide-right',
+      }}
+    >
       <div className='flex flex-col flex-1 justify-between'>
         <div className='flex flex-col w-full pt-4 mb-4'>
           <Link

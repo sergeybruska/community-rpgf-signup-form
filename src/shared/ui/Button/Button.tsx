@@ -67,11 +67,11 @@ const variantClassName: Record<
 };
 
 const classNameBySize: Record<ButtonSize, string> = {
-  base: 'w-fit h-[2.25rem] px-4 py-2 text-sm rounded-md font-semibold',
-  sm: 'w-fit text-sm py-0 px-4 rounded-lg font-semibold',
-  md: 'w-fit text-sm px-4 py-2 rounded-lg font-bold',
-  xs: 'w-fit text-xs px-3 py-2 rounded-lg font-semibold',
-  lg: 'w-fit text-sm px-6 py-4 rounded-lg font-bold',
+  base: 'w-fit h-[2.25rem] px-4 py-2 text-sm rounded-md font-semibold font-display',
+  sm: 'w-fit text-sm py-0 px-4 rounded-lg font-semibold font-display',
+  md: 'w-fit text-sm px-4 py-2 rounded-lg font-bold font-display',
+  xs: 'w-fit text-xs px-3 py-2 rounded-lg font-semibold font-display',
+  lg: 'w-fit text-sm px-6 py-4 rounded-lg font-bold font-display',
 };
 
 const buttonClassName =
@@ -134,6 +134,7 @@ export const Button: FC<PropsWithChildren<unknown> & Props> = ({
         variant={variant}
         size={size}
         color={color}
+        radius='lg'
         className={mergedClassName}
         href={linkTo}
         leftIcon={leftIcon}

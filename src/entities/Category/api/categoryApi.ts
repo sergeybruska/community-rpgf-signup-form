@@ -9,7 +9,6 @@ const currentCategoryQueryKey = ['currentCategory'];
 
 export const fetchCategories = async () => {
   const response = await apiClient.get<Category[]>(apiRoutes.getCategories);
-  console.log(response);
   return response.data;
 };
 

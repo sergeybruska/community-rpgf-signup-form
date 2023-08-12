@@ -1,4 +1,3 @@
-// import { WalletConnectModalAuth } from '@walletconnect/modal-auth-react';
 import { Open_Sans, Rubik } from 'next/font/google';
 import Head from 'next/head';
 import { type FC, type ReactNode } from 'react';

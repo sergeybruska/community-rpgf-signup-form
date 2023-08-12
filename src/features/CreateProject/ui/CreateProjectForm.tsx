@@ -1,6 +1,6 @@
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { Field, type FieldProps, Form, Formik } from 'formik';
 import { type FC } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
 
 import {
   CreateProjectSchema,
@@ -150,10 +150,10 @@ export const CreateProjectForm: FC = () => {
         <Field name='captcha'>
           {({ field, meta, form: { setFieldValue } }: FieldProps) => (
             <div className='flex flex-col items-center w-full mb-8'>
-              <ReCAPTCHA
+              <HCaptcha
                 {...field}
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY || ''}
-                onChange={(token) => setFieldValue(field.name, token)}
+                sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_KEY || ''}
+                onVerify={(token) => setFieldValue(field.name, token)}
               />
               {meta.touched && meta.error && (
                 <span className='text-xs text-red-500'>{meta.error}</span>
