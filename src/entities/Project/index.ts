@@ -3,6 +3,7 @@ export {
   projectsQueryKey,
   useChangeProjectIsModerateApi,
   useProjectById,
+  useProjectForModerateById,
   useProjects,
 } from '@/entities/Project/api/projectApi';
 export {

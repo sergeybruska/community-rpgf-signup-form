@@ -1,6 +1,9 @@
 import * as yup from 'yup';
 
-import { validationMessage } from '@/shared/helpers/validationMessages';
+import {
+  validationMessage,
+  validationRegEx,
+} from '@/shared/helpers/validationMessages';
 import { type OptionSelect } from '@/shared/ui/MultiSelect';
 
 import { type CreateProjectState } from '../model/types';
@@ -43,11 +46,20 @@ export const CreateProjectSchema = yup.object<CreateProjectState>().shape({
     .required(validationMessage.required),
   about_team: yup.string().required(validationMessage.required),
   team_company: yup.string().required(validationMessage.required),
-  contact_email: yup.string().required(validationMessage.required),
+  contact_email: yup
+    .string()
+    .matches(validationRegEx.emailFormat, validationMessage.invalidEmail)
+    .required(validationMessage.required),
   contact_name: yup.string().required(validationMessage.required),
   contact_tg: yup.string().required(validationMessage.required),
-  url_website: yup.string().required(validationMessage.required),
-  url_whitepaper: yup.string().required(validationMessage.required),
+  url_website: yup
+    .string()
+    .required(validationMessage.required)
+    .url(validationMessage.invalidUrl),
+  url_whitepaper: yup
+    .string()
+    .required(validationMessage.required)
+    .url(validationMessage.invalidUrl),
   has_token: yup.string().required(validationMessage.required),
   fund_history: yup.string().required(validationMessage.required),
   size_grant: yup
@@ -59,10 +71,9 @@ export const CreateProjectSchema = yup.object<CreateProjectState>().shape({
   cover: yup
     .mixed()
     .test('fileSize', 'Max file size is 300kB', async (value) => {
-      if (!value) return true; // No file uploaded, so no need to validate
+      if (!value) return true;
 
       if (typeof value === 'string' && value.startsWith('blob:')) {
-        // Fetch the blob and get its size
         const response = await fetch(value);
         const blob = await response.blob();
         const maxSizeBytes = 300 * 1024;
@@ -70,7 +81,7 @@ export const CreateProjectSchema = yup.object<CreateProjectState>().shape({
         return blob.size <= maxSizeBytes;
       }
 
-      return false; // Invalid value type
+      return false;
     })
-    .nullable(), // Allow null values
+    .nullable(),
 });

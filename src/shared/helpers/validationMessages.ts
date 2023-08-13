@@ -3,6 +3,7 @@ export const validationMessage = {
   invalidWithFormat: 'Invalid width format',
   invalidShortPassword: 'The password must contain at least 8 characters',
   invalidEmail: 'Enter a valid email address',
+  invalidUrl: 'Enter the correct link',
   noEmptyCategory: 'Category must have at least one item',
 };
 

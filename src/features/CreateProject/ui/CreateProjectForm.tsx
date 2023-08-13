@@ -66,6 +66,7 @@ export const CreateProjectForm: FC = () => {
           label='Link to website'
           className='flex flex-col w-full mb-4'
           required
+          placeholder='https://yourproject.io'
           disabled={isLoading}
         />
         <TextField
@@ -73,6 +74,7 @@ export const CreateProjectForm: FC = () => {
           label='Link to technical docs or whitepaper'
           className='flex flex-col w-full mb-4'
           required
+          placeholder='https://yourproject.io/whitepaper'
           disabled={isLoading}
         />
         <div className='flex flex-row w-full mb-4'>

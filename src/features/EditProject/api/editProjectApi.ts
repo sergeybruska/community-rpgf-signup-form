@@ -42,8 +42,8 @@ export const useEditProjectApi = (): UseMutationResult<
       const newData = existingData?.map((item) =>
         item._id === res.data._id ? res.data : item,
       );
-      queryClient.invalidateQueries([currentProjectQueryKey, res.data._id]);
       queryClient.setQueryData(allProjectsQueryKey, newData);
+      queryClient.invalidateQueries([currentProjectQueryKey, res.data._id]);
       queryClient.invalidateQueries(projectsQueryKey);
     },
   });

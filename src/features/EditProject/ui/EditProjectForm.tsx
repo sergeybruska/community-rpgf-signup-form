@@ -62,6 +62,7 @@ export const EditProjectForm: FC = () => {
           name='url_website'
           label='Link to website'
           className='flex flex-col w-full mb-4'
+          placeholder='https://yourproject.io'
           required
           disabled={isLoading}
         />
@@ -69,6 +70,7 @@ export const EditProjectForm: FC = () => {
           name='url_whitepaper'
           label='Link to technical docs or whitepaper'
           className='flex flex-col w-full mb-4'
+          placeholder='https://yourproject.io/whitepaper'
           required
           disabled={isLoading}
         />

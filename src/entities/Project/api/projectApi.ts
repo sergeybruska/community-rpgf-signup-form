@@ -42,10 +42,27 @@ export const fetchProject = async (id?: string) => {
   return response.data;
 };
 
+export const fetchProjectForModerateById = async (id?: string) => {
+  const response = await apiClient.get<Project>(
+    `${apiRoutes.getProjectModerateById}/${id}`,
+  );
+  return response.data;
+};
+
 export const useProjects = () => useQuery(projectsQueryKey, fetchProjects);
 
 export const useAllProjects = () =>
   useQuery(allProjectsQueryKey, fetchAllProjects);
+
+export const useProjectForModerateById = (id?: string) => {
+  const data = useQuery({
+    queryKey: [currentProjectQueryKey, id],
+    queryFn: () => fetchProjectForModerateById(id),
+    enabled: !!id,
+  });
+
+  return data;
+};
 
 export const useProjectById = (id?: string) => {
   const data = useQuery({

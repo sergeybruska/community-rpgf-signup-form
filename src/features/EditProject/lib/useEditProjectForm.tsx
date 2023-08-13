@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 import { useCategories } from '@/entities/Category';
-import { useProjectById } from '@/entities/Project';
+import { useProjectForModerateById } from '@/entities/Project';
 import {
   EditProjectDefault,
   type EditProjectState,
@@ -25,7 +25,7 @@ export const useEditProjectForm = () => {
     data: currentProject,
     isLoading: isLoadingCurrentProject,
     isError: isErrorCurrentProject,
-  } = useProjectById(_id as string);
+  } = useProjectForModerateById(_id as string);
   const { data: categories, isLoading: isLoadingCategories } = useCategories();
   const {
     mutateAsync,
