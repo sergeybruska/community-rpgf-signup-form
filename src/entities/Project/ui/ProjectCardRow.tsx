@@ -43,10 +43,10 @@ export const ProjectCardRow: FC<ProjectCardRowProps> = (props) => {
           width={rem(56)}
           height={rem(56)}
           alt={project.name}
-          className='mb-4 shrink-0'
+          className='mb-4 shrink-0 rounded-lg'
         />
       ) : (
-        <div className='block w-[3.5rem] h-[3.5rem] rounded-full bg-gray-200 mb-4'></div>
+        <div className='block w-[3.5rem] h-[3.5rem] shrink-0 rounded-lg bg-gray-200 mb-4'></div>
       )}
       <div className='flex flex-col w-full px-4'>
         <Title order={5} className='font-display mb-1' lineClamp={1}>

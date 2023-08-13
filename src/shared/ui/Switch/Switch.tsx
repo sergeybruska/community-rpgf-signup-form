@@ -25,7 +25,7 @@ export const Switch: FC<SwitchProps> = (props) => {
       description={description}
       checked={checked}
       onChange={handleChecked}
-      color='green.5'
+      color='red.8'
       disabled={disabled}
       aria-label={ariaLabel}
     />

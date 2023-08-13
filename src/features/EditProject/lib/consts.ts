@@ -68,4 +68,19 @@ export const EditProjectSchema = yup.object<EditProjectState>().shape({
     .required(validationMessage.invalidWithFormat)
     .positive()
     .integer(),
+  cover: yup
+    .mixed()
+    .test('fileSize', 'Max file size is 300kB', async (value) => {
+      if (!value) return true;
+
+      if (typeof value === 'string' && value.startsWith('blob:')) {
+        const response = await fetch(value);
+        const blob = await response.blob();
+        const maxSizeBytes = 300 * 1024;
+        return blob.size <= maxSizeBytes;
+      }
+
+      return true;
+    })
+    .nullable(),
 });

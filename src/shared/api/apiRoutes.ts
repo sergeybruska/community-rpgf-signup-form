@@ -8,4 +8,6 @@ export const apiRoutes = {
   getAllProjects: '/projects/all',
   moderateProjectById: '/projects/moderate',
   editProjectById: '/projects/edit',
+  updateProjectCover: '/projects',
+  deleteProjectCover: '/projects',
 };

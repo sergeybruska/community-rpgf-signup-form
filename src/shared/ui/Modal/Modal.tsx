@@ -19,6 +19,8 @@ export const Modal: FC<PropsWithChildren<unknown>> = ({ children }) => {
       radius='lg'
       size={modal.size}
       classNames={{
+        header: 'px-8 pt-8 pb-4',
+        body: 'px-8 pb-8',
         content: modal.isContentOverflowYVisible
           ? 'overflow-y-visible'
           : 'overflow-y-auto',

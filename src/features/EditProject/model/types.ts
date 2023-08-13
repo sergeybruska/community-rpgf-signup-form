@@ -19,6 +19,7 @@ export type EditProjectState = {
 
 export type EditProjectRequest = {
   _id: string;
+  cover: string | null;
   name: string;
   description: string;
   about_team: string;

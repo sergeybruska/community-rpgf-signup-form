@@ -25,12 +25,19 @@ export const ModalUserLogOut: FC = () => {
         <Button
           variant='outline'
           color='gray'
+          size='lg'
           onClick={() => modalController.popModal()}
           fullWidth
         >
           Cancel
         </Button>
-        <Button variant='primary' color='red' fullWidth onClick={handlerLogOut}>
+        <Button
+          variant='primary'
+          color='red'
+          size='lg'
+          fullWidth
+          onClick={handlerLogOut}
+        >
           Log Out
         </Button>
       </div>
